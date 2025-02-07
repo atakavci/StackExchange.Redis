@@ -20,7 +20,9 @@ jobs:
       TERM: xterm # Enable color output in GitHub Actions
     steps:
     - name: Checkout code
-      uses: actions/checkout@v1
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Fetch the full history
     - name: Install .NET SDK
       uses: actions/setup-dotnet@v3
       with:
@@ -54,7 +56,7 @@ jobs:
       DOCKER_BUILDKIT: 1
     steps:
     - name: Checkout code
-      uses: actions/checkout@v1
+      uses: actions/checkout@v4
     - uses: Vampire/setup-wsl@v2
       with:
         distribution: Ubuntu-22.04
@@ -74,56 +76,56 @@ jobs:
         # Create required temporary directory
         mkdir -p ../Temp
         # Run each server instance in order
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Basic/primary-6379-3.0.conf &
+        ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Basic/primary-6379-3.0.conf &
         ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Basic/replica-6380.conf &
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Basic/secure-6381.conf &
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Failover/primary-6382.conf &
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Failover/replica-6383.conf &
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Cluster/cluster-7000.conf --dir ./Cluster &
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Cluster/cluster-7001.conf --dir ./Cluster &
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Cluster/cluster-7002.conf --dir ./Cluster &
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Cluster/cluster-7003.conf --dir ./Cluster &
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Cluster/cluster-7004.conf --dir ./Cluster &
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Cluster/cluster-7005.conf --dir ./Cluster &
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Sentinel/redis-7010.conf &
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Sentinel/redis-7011.conf &
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Sentinel/sentinel-26379.conf --sentinel &
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Sentinel/sentinel-26380.conf --sentinel &
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Sentinel/sentinel-26381.conf --sentinel &
+        ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Basic/secure-6381.conf &
+        ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Failover/primary-6382.conf &
+        ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Failover/replica-6383.conf &
+        ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Cluster/cluster-7000.conf --dir ./Cluster &
+        ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Cluster/cluster-7001.conf --dir ./Cluster &
+        ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Cluster/cluster-7002.conf --dir ./Cluster &
+        ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Cluster/cluster-7003.conf --dir ./Cluster &
+        ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Cluster/cluster-7004.conf --dir ./Cluster &
+        ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Cluster/cluster-7005.conf --dir ./Cluster &
+        ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Sentinel/redis-7010.conf &
+        ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Sentinel/redis-7011.conf &
+        ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Sentinel/sentinel-26379.conf --sentinel &
+        ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Sentinel/sentinel-26380.conf --sentinel &
+        ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Sentinel/sentinel-26381.conf --sentinel &
         # Wait for server instances to get ready
         sleep 5
-        # echo "Checking redis-server version with port 6379"
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 6379 INFO SERVER | grep redis_version
+        echo "Checking redis-server version with port 6379"
+        ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 6379 INFO SERVER | grep redis_version
         echo "Checking redis-server version with port 6380"
         ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 6380 INFO SERVER | grep redis_version
-        # echo "Checking redis-server version with port 6381"
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 6381 INFO SERVER | grep redis_version
-        # echo "Checking redis-server version with port 6382"
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 6382 INFO SERVER | grep redis_version
-        # echo "Checking redis-server version with port 6383"
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 6383 INFO SERVER | grep redis_version
-        # echo "Checking redis-server version with port 7000"
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 7000 INFO SERVER | grep redis_version
-        # echo "Checking redis-server version with port 7001"
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 7001 INFO SERVER | grep redis_version
-        # echo "Checking redis-server version with port 7002"
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 7002 INFO SERVER | grep redis_version
-        # echo "Checking redis-server version with port 7003"
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 7003 INFO SERVER | grep redis_version
-        # echo "Checking redis-server version with port 7004"
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 7004 INFO SERVER | grep redis_version
-        # echo "Checking redis-server version with port 7005"
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 7005 INFO SERVER | grep redis_version
-        # echo "Checking redis-server version with port 7010"
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 7010 INFO SERVER | grep redis_version
-        # echo "Checking redis-server version with port 7011"
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 7011 INFO SERVER | grep redis_version
-        # echo "Checking redis-server version with port 26379"
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 26379 INFO SERVER | grep redis_version
-        # echo "Checking redis-server version with port 26380"
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 26380 INFO SERVER | grep redis_version
-        # echo "Checking redis-server version with port 26381"
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 26381 INFO SERVER | grep redis_version
+        echo "Checking redis-server version with port 6381"
+        ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 6381 INFO SERVER | grep redis_version
+        echo "Checking redis-server version with port 6382"
+        ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 6382 INFO SERVER | grep redis_version
+        echo "Checking redis-server version with port 6383"
+        ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 6383 INFO SERVER | grep redis_version
+        echo "Checking redis-server version with port 7000"
+        ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 7000 INFO SERVER | grep redis_version
+        echo "Checking redis-server version with port 7001"
+        ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 7001 INFO SERVER | grep redis_version
+        echo "Checking redis-server version with port 7002"
+        ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 7002 INFO SERVER | grep redis_version
+        echo "Checking redis-server version with port 7003"
+        ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 7003 INFO SERVER | grep redis_version
+        echo "Checking redis-server version with port 7004"
+        ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 7004 INFO SERVER | grep redis_version
+        echo "Checking redis-server version with port 7005"
+        ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 7005 INFO SERVER | grep redis_version
+        echo "Checking redis-server version with port 7010"
+        ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 7010 INFO SERVER | grep redis_version
+        echo "Checking redis-server version with port 7011"
+        ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 7011 INFO SERVER | grep redis_version
+        echo "Checking redis-server version with port 26379"
+        ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 26379 INFO SERVER | grep redis_version
+        echo "Checking redis-server version with port 26380"
+        ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 26380 INFO SERVER | grep redis_version
+        echo "Checking redis-server version with port 26381"
+        ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 26381 INFO SERVER | grep redis_version
 
     - name: .NET Build
       run: dotnet build Build.csproj -c Release /p:CI=true
