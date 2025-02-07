@@ -1,5 +1,8 @@
 FROM redis/redis-stack-server:7.4.0-v2
 
+# Ensure that the redis user and group exist
+RUN groupadd -r redis && useradd -r -g redis redis
+
 COPY --from=configs ./Basic /data/Basic/
 COPY --from=configs ./Failover /data/Failover/
 COPY --from=configs ./Cluster /data/Cluster/
