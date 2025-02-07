@@ -1,4 +1,4 @@
-FROM redis/redis-stack-server:7.4.0-v2
+FROM redis:7.4-rc1
 
 COPY --from=configs ./Basic /data/Basic/
 COPY --from=configs ./Failover /data/Failover/
