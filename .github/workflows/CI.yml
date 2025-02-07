@@ -74,22 +74,22 @@ jobs:
         # Create required temporary directory
         mkdir -p ../Temp
         # Run each server instance in order
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ../Basic/primary-6379-3.0.conf &
-        ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ../Basic/replica-6380.conf &
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ../Basic/secure-6381.conf &
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ../Failover/primary-6382.conf &
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ../Failover/replica-6383.conf &
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ../Cluster/cluster-7000.conf --dir ../Cluster &
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ../Cluster/cluster-7001.conf --dir ../Cluster &
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ../Cluster/cluster-7002.conf --dir ../Cluster &
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ../Cluster/cluster-7003.conf --dir ../Cluster &
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ../Cluster/cluster-7004.conf --dir ../Cluster &
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ../Cluster/cluster-7005.conf --dir ../Cluster &
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ../Sentinel/redis-7010.conf &
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ../Sentinel/redis-7011.conf &
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ../Sentinel/sentinel-26379.conf --sentinel &
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ../Sentinel/sentinel-26380.conf --sentinel &
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ../Sentinel/sentinel-26381.conf --sentinel &
+        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Basic/primary-6379-3.0.conf &
+        ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Basic/replica-6380.conf &
+        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Basic/secure-6381.conf &
+        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Failover/primary-6382.conf &
+        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Failover/replica-6383.conf &
+        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Cluster/cluster-7000.conf --dir ./Cluster &
+        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Cluster/cluster-7001.conf --dir ./Cluster &
+        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Cluster/cluster-7002.conf --dir ./Cluster &
+        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Cluster/cluster-7003.conf --dir ./Cluster &
+        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Cluster/cluster-7004.conf --dir ./Cluster &
+        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Cluster/cluster-7005.conf --dir ./Cluster &
+        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Sentinel/redis-7010.conf &
+        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Sentinel/redis-7011.conf &
+        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Sentinel/sentinel-26379.conf --sentinel &
+        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Sentinel/sentinel-26380.conf --sentinel &
+        # ../../redis-stack-server-7.4.0-v2/bin/redis-stack-server ./Sentinel/sentinel-26381.conf --sentinel &
         # Wait for server instances to get ready
         sleep 5
         # echo "Checking redis-server version with port 6379"
