@@ -75,56 +75,56 @@ jobs:
         pwd
         ls .
         # Run each server instance in order
-        # .bin/redis-stack-server ../Basic/primary-6379-3.0.conf &
-        # .bin/redis-stack-server ../Basic/replica-6380.conf &
-        # .bin/redis-stack-server ../Basic/secure-6381.conf &
-        # .bin/redis-stack-server ../Failover/primary-6382.conf &
-        # .bin/redis-stack-server ../Failover/replica-6383.conf &
-        .bin/redis-stack-server ../Cluster/cluster-7000.conf --dir ../Cluster &
-        .bin/redis-stack-server ../Cluster/cluster-7001.conf --dir ../Cluster &
-        .bin/redis-stack-server ../Cluster/cluster-7002.conf --dir ../Cluster &
-        .bin/redis-stack-server ../Cluster/cluster-7003.conf --dir ../Cluster &
-        .bin/redis-stack-server ../Cluster/cluster-7004.conf --dir ../Cluster &
-        .bin/redis-stack-server ../Cluster/cluster-7005.conf --dir ../Cluster &
-        # .bin/redis-stack-server ../Sentinel/redis-7010.conf &
-        # .bin/redis-stack-server ../Sentinel/redis-7011.conf &
-        # .bin/redis-stack-server ../Sentinel/sentinel-26379.conf --sentinel &
-        # .bin/redis-stack-server ../Sentinel/sentinel-26380.conf --sentinel &
-        # .bin/redis-stack-server ../Sentinel/sentinel-26381.conf --sentinel &
+        # ./bin/redis-stack-server ../Basic/primary-6379-3.0.conf &
+        # ./bin/redis-stack-server ../Basic/replica-6380.conf &
+        # ./bin/redis-stack-server ../Basic/secure-6381.conf &
+        # ./bin/redis-stack-server ../Failover/primary-6382.conf &
+        # ./bin/redis-stack-server ../Failover/replica-6383.conf &
+        ./bin/redis-stack-server ../Cluster/cluster-7000.conf --dir ../Cluster &
+        ./bin/redis-stack-server ../Cluster/cluster-7001.conf --dir ../Cluster &
+        ./bin/redis-stack-server ../Cluster/cluster-7002.conf --dir ../Cluster &
+        ./bin/redis-stack-server ../Cluster/cluster-7003.conf --dir ../Cluster &
+        ./bin/redis-stack-server ../Cluster/cluster-7004.conf --dir ../Cluster &
+        ./bin/redis-stack-server ../Cluster/cluster-7005.conf --dir ../Cluster &
+        # ./bin/redis-stack-server ../Sentinel/redis-7010.conf &
+        # ./bin/redis-stack-server ../Sentinel/redis-7011.conf &
+        # ./bin/redis-stack-server ../Sentinel/sentinel-26379.conf --sentinel &
+        # ./bin/redis-stack-server ../Sentinel/sentinel-26380.conf --sentinel &
+        # ./bin/redis-stack-server ../Sentinel/sentinel-26381.conf --sentinel &
         # Wait for server instances to get ready
         sleep 5
         # echo "Checking redis-server version with port 6379"
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 6379 INFO SERVER | grep redis_version || echo "Failed to get version for port 6379"
+        # ./bin/redis-cli -p 6379 INFO SERVER | grep redis_version || echo "Failed to get version for port 6379"
         # echo "Checking redis-server version with port 6380"
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 6380 INFO SERVER | grep redis_version || echo "Failed to get version for port 6380"
+        # ./bin/redis-cli -p 6380 INFO SERVER | grep redis_version || echo "Failed to get version for port 6380"
         # echo "Checking redis-server version with port 6381"
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 6381 INFO SERVER | grep redis_version || echo "Failed to get version for port 6381"
+        # ./bin/redis-cli -p 6381 INFO SERVER | grep redis_version || echo "Failed to get version for port 6381"
         # echo "Checking redis-server version with port 6382"
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 6382 INFO SERVER | grep redis_version || echo "Failed to get version for port 6382"
+        # ./bin/redis-cli -p 6382 INFO SERVER | grep redis_version || echo "Failed to get version for port 6382"
         # echo "Checking redis-server version with port 6383"
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 6383 INFO SERVER | grep redis_version || echo "Failed to get version for port 6383"
+        # ./bin/redis-cli -p 6383 INFO SERVER | grep redis_version || echo "Failed to get version for port 6383"
         echo "Checking redis-server version with port 7000"
-        ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 7000 INFO SERVER | grep redis_version || echo "Failed to get version for port 7000"
+        ./bin/redis-cli -p 7000 INFO SERVER | grep redis_version || echo "Failed to get version for port 7000"
         echo "Checking redis-server version with port 7001"
-        ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 7001 INFO SERVER | grep redis_version || echo "Failed to get version for port 7001"
+        ./bin/redis-cli -p 7001 INFO SERVER | grep redis_version || echo "Failed to get version for port 7001"
         echo "Checking redis-server version with port 7002"
-        ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 7002 INFO SERVER | grep redis_version || echo "Failed to get version for port 7002"
+        ./bin/redis-cli -p 7002 INFO SERVER | grep redis_version || echo "Failed to get version for port 7002"
         echo "Checking redis-server version with port 7003"
-        ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 7003 INFO SERVER | grep redis_version || echo "Failed to get version for port 7003"
+        ./bin/redis-cli -p 7003 INFO SERVER | grep redis_version || echo "Failed to get version for port 7003"
         echo "Checking redis-server version with port 7004"
-        ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 7004 INFO SERVER | grep redis_version || echo "Failed to get version for port 7004"
+        ./bin/redis-cli -p 7004 INFO SERVER | grep redis_version || echo "Failed to get version for port 7004"
         echo "Checking redis-server version with port 7005"
-        ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 7005 INFO SERVER | grep redis_version || echo "Failed to get version for port 7005"
+        ./bin/redis-cli -p 7005 INFO SERVER | grep redis_version || echo "Failed to get version for port 7005"
         # echo "Checking redis-server version with port 7010"
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 7010 INFO SERVER | grep redis_version || echo "Failed to get version for port 7010"
+        # ./bin/redis-cli -p 7010 INFO SERVER | grep redis_version || echo "Failed to get version for port 7010"
         # echo "Checking redis-server version with port 7011"
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 7011 INFO SERVER | grep redis_version || echo "Failed to get version for port 7011"
+        # ./bin/redis-cli -p 7011 INFO SERVER | grep redis_version || echo "Failed to get version for port 7011"
         # echo "Checking redis-server version with port 26379"
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 26379 INFO SERVER | grep redis_version || echo "Failed to get version for port 26379"
+        # ./bin/redis-cli -p 26379 INFO SERVER | grep redis_version || echo "Failed to get version for port 26379"
         # echo "Checking redis-server version with port 26380"
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 26380 INFO SERVER | grep redis_version || echo "Failed to get version for port 26380"
+        # ./bin/redis-cli -p 26380 INFO SERVER | grep redis_version || echo "Failed to get version for port 26380"
         # echo "Checking redis-server version with port 26381"
-        # ../../redis-stack-server-7.4.0-v2/bin/redis-cli -p 26381 INFO SERVER | grep redis_version || echo "Failed to get version for port 26381"
+        # ./bin/redis-cli -p 26381 INFO SERVER | grep redis_version || echo "Failed to get version for port 26381"
       continue-on-error: true
 
     - name: .NET Build
