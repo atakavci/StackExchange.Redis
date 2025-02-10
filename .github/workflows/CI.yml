@@ -19,13 +19,13 @@ jobs:
       DOTNET_SYSTEM_CONSOLE_ALLOW_ANSI_COLOR_REDIRECTION: "1" # Enable color output, even though the console output is redirected in Actions
       TERM: xterm # Enable color output in GitHub Actions
     steps:
-    - name: Start Redis Services (docker-compose)
-      working-directory: ./tests/RedisConfigs
-      run: docker compose -f docker-compose.yml up -d --wait   
     - name: Checkout code
       uses: actions/checkout@v4
       with:
         fetch-depth: 0  # Fetch the full history
+    - name: Start Redis Services (docker-compose)
+      working-directory: ./tests/RedisConfigs
+      run: docker compose -f docker-compose.yml up -d --wait           
     - name: Install .NET SDK
       uses: actions/setup-dotnet@v3
       with:
